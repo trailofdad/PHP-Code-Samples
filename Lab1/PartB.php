@@ -30,6 +30,39 @@ echo "<h1>Greetings from the lab</h1>";
     ?>
 </p>
 
+<p>
+    <?php
+        $a = (32 * 14) + 83;
+        echo $a;
+    ?>
+</p>
+
+<p>
+    <?php
+        $b = (1024 / 128) - 7;
+        echo $b;
+    ?>
+</p>
+
+<p>
+    <?php
+    $c = 769 % 6;
+    echo $c;
+    ?>
+</p>
+
+<p>
+    <?php
+        $counter = 10;
+        while($counter>0)
+        {
+            echo $counter."...";
+            $counter--;
+        }
+        echo "Blast Off";
+    ?>
+</p>
+
 </body>
 
 </html>
