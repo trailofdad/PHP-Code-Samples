@@ -63,6 +63,35 @@ echo "<h1>Greetings from the lab</h1>";
     ?>
 </p>
 
+<p>
+    <?php
+        $colors = array("red", "blue", "green", "yellow", "brown", "orange", "purple");
+
+        for($x=0;$x<7;$x++)
+        {
+            echo $colors[$x] . " ";
+        }
+
+    ?>
+</p>
+
+<p>
+    <?php
+        $colors = array("red", "blue", "green", "yellow", "brown", "orange", "purple");
+        foreach($colors as $display)
+        {
+            echo $display . " ";
+        }
+    ?>
+</p>
+
+<p>
+    <?php
+        $colors = array("red", "blue", "green", "yellow", "brown", "orange", "purple");
+        var_dump($colors);
+    ?>
+</p>
+
 </body>
 
 </html>
