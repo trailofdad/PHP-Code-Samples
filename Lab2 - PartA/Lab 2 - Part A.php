@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: inet2005
- * Date: 9/24/15
- * Time: 12:58 PM
- */
 
+//Step 1 Function
 function myFunction($string, $number)
 {
 
@@ -27,13 +22,14 @@ for ($i = 1;$i < 8;$i++)
     myFunction("Hello world!",$i);
 }
 
-
+//Step 2
 //function by value
 function valueFunction($message)
 {
     $message .= "...blah";
 }
 
+//function by reference
 function referenceFunction(&$message)
 {
     $message .= "...blah";
@@ -54,3 +50,14 @@ echo "<br/>";
 referenceFunction($defaultMessage);
 
 print $defaultMessage;
+
+//Step 3
+$age = 26;
+
+function ageFunction()
+{
+    global $age;
+    echo "<h1>You are " . $age . " years old</h1>";
+}
+
+ageFunction();
