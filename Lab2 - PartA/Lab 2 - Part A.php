@@ -8,6 +8,7 @@
 
 function myFunction($string, $number)
 {
+
     if($number <= 6)
     {
         echo "<h$number>$string</h$number>";
@@ -18,4 +19,10 @@ function myFunction($string, $number)
         echo 'alert("There is an Error!")';
         echo '</script>';
     }
+} //end function
+
+//loop to call function
+for ($i = 1;$i < 8;$i++)
+{
+    myFunction("Hello world!",$i);
 }
