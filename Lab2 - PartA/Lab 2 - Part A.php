@@ -26,3 +26,31 @@ for ($i = 1;$i < 8;$i++)
 {
     myFunction("Hello world!",$i);
 }
+
+
+//function by value
+function valueFunction($message)
+{
+    $message .= "...blah";
+}
+
+function referenceFunction(&$message)
+{
+    $message .= "...blah";
+}
+
+$defaultMessage = "Hello, World";
+
+print $defaultMessage;
+
+echo "<br/>";
+
+valueFunction($defaultMessage);
+
+print $defaultMessage;
+
+echo "<br/>";
+
+referenceFunction($defaultMessage);
+
+print $defaultMessage;
