@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: inet2005
- * Date: 9/24/15
- * Time: 1:28 PM
- */
+
+echo PHP_OS;
+echo "<br/>";
+echo PHP_RELEASE_VERSION;
+echo "<br/>";
+echo PHP_VERSION;
+echo "<br/>";
+echo PHP_DEBUG;
