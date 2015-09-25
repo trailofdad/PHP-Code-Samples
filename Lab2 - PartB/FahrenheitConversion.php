@@ -6,11 +6,22 @@
         table,th,td,tr {
             border: 1px solid black;
         }
-
+        th{
+            background-color: #B6B5BF;
+        }
+        button {
+            width: 90px;
+            margin: 20px;
+        }
+        tr:nth-child(even) {
+            background-color: #B6B5BF;
+        }
     </style>
 </head>
 <body>
-
+<form action="http://localhost:63342/Lab2%20-%20PartB/CelsiusConversion.php">
+    <input type="submit" value="Celsius">
+</form>
 <table>
     <thead>
         <tr>
