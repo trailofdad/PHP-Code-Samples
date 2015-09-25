@@ -15,13 +15,13 @@ echo "Size: " . sizeof($_FILES["fileToUpload"]);
 
 //Source: W3schools.com/pgp/php_file_upload
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-}
+//if(isset($_POST["submit"])) {
+//    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+//    if($check !== false) {
+//        echo "File is an image - " . $check["mime"] . ".";
+//        $uploadOk = 1;
+//    } else {
+//        echo "File is not an image.";
+//        $uploadOk = 0;
+//    }
+//}
