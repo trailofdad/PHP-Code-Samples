@@ -36,7 +36,7 @@
             {
                 echo "<tr>";
                 echo "<td>$i</td>";
-                $celsius = ($i-32)*(5/9);
+                $celsius = round(($i-32)*(5/9));
                 echo "<td>$celsius</td>";
                 echo "</tr>";
             }
