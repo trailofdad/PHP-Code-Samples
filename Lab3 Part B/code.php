@@ -70,6 +70,11 @@ mysqli_close($db);
     <input type="text" name="delete"> <br/>
     <input type="submit" value="Submit" name="submit">
 </form>
+<form action="update.php" method="post" enctype="multipart/form-data">
+    ID to update: <br/>
+    <input type="text" name="update"> <br/>
+    <input type="submit" value="Submit" name="submit">
+</form>
 </body>
 </html>
 
