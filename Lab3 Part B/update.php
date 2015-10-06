@@ -1,3 +1,9 @@
+
+
+<html>
+<head>
+</head>
+<body>
 <?php
 /**
  * Created by PhpStorm.
@@ -10,14 +16,22 @@ $db = getDBConnection();
 
 $updateId = $_POST['update'];
 $firstName = mysqli_query($db,"SELECT first_name FROM actor WHERE actor_id=$updateId;");
-$lastName = mysqli_query($db,"SELECT first_name FROM actor WHERE actor_id=$updateId;");
+$lastName = mysqli_query($db,"SELECT last_name FROM actor WHERE actor_id=$updateId;");
 ?>
 
-<form action="updateHandler.php" method="post" enctype="multipart/form-data">
+<form action='updateHandler.php' method='post' enctype='multipart/form-data'>
 First Name: <br/>
-<input type="text" name="firstname"> <br/>
-    Last Name: <br/>
-    <input type="text" name="lastname"> <br/>
-    <input type="submit" value="Update" name="submit">
+<input type='text' name='updatefirst' value='<?php $firstName ?>'> <br/>
+Last Name: <br/>
+<input type='text' name='updatelast' value='<?php $lastName ?>'> <br/>
+<input type='submit' value='Update' name='submit'>
 </form>
+
+</body>
+</html>
+
+
+
+
+
 
