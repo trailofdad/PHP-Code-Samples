@@ -1,20 +1,5 @@
-/**
- * Created by inet2005 on 10/5/15.
- */
-
 "use strict";
 
-//document.getElementById("fname").addEventListener("focus", makeYellow("fname"));
-//document.getElementById("lname").addEventListener("focus", makeYellow("lname"));
-//document.getElementById("a1").addEventListener("focus", makeYellow("a1"));
-//document.getElementById("a2").addEventListener("focus", makeYellow("a2"));
-//document.getElementById("email").addEventListener("focus", makeYellow("email"));
-//
-//document.getElementById("fname").addEventListener("blur", clearYellow("fname"));
-//document.getElementById("lname").addEventListener("blur", clearYellow("lname"));
-//document.getElementById("a1").addEventListener("blur", clearYellow("a1"));
-//document.getElementById("a2").addEventListener("blur", clearYellow("a2"));
-//document.getElementById("email").addEventListener("blur", clearYellow("email"));
 
 function makeYellow(id)
 {
@@ -30,5 +15,45 @@ function clearYellow(id)
 
 function validateForm()
 {
+    var firstName = document.getElementById("fname");
+    var lastName = document.getElementById("lname");
+    var addressOne = document.getElementById("a1");
+    var addressTwo = document.getElementById("a2");
+    var email = document.getElementById("email");
+    var checkbox = document.getElementById("agreement");
 
+    if (firstName == null || firstName == "")
+    {
+        alert("Name must be filled out");
+        document.getElementById("fname").style.border = "2px solid red";
+    }
+    else if (lastName == null || lastName == "")
+    {
+        alert("Last name must be filled out");
+        document.getElementById("lname").style.border = "2px solid red";
+    }
+    else if (addressOne == null || addressOne == "")
+    {
+        alert("Address One must be filled out");
+        document.getElementById("a1").style.border = "2px solid red";
+    }
+    else if (addressTwo == null || addressTwo == "")
+    {
+        alert("Address Two must be filled out");
+        document.getElementById("a2").style.border = "2px solid red";
+    }
+    else if (email == null || email == "")
+    {
+        alert("Email must be filled out");
+        document.getElementById("email").style.border = "2px solid red";
+    }
+    else if (checkbox.checkValidity() == false)
+    {
+        alert("You must agree to the terms of service");
+        document.getElementById("span").style.visibility = "visible";
+    }
+    else
+    {
+        alert("form validated");
+    }
 }
