@@ -15,42 +15,42 @@ function clearYellow(id)
 
 function validateForm()
 {
-    var firstName = document.getElementById("fname");
-    var lastName = document.getElementById("lname");
-    var addressOne = document.getElementById("a1");
-    var addressTwo = document.getElementById("a2");
-    var email = document.getElementById("email");
-    var checkbox = document.getElementById("agreement");
+    var firstName = document.forms["myForm"].fname.value.length;
+    var lastName = document.forms["myForm"].lname.value.length;
+    var addressOne = document.forms["myForm"].a1.value.length;
+    var addressTwo = document.forms["myForm"].a2.value.length;
+    var email = document.forms["myForm"].email.value.length;
+    var check = document.getElementById("check").checked;
 
-    if (firstName == null || firstName == "")
+    if (firstName == 0)
     {
         alert("Name must be filled out");
         document.getElementById("fname").style.border = "2px solid red";
     }
-    else if (lastName == null || lastName == "")
+    else if (lastName == 0)
     {
         alert("Last name must be filled out");
         document.getElementById("lname").style.border = "2px solid red";
     }
-    else if (addressOne == null || addressOne == "")
+    else if (addressOne == 0)
     {
         alert("Address One must be filled out");
         document.getElementById("a1").style.border = "2px solid red";
     }
-    else if (addressTwo == null || addressTwo == "")
+    else if (addressTwo == 0)
     {
         alert("Address Two must be filled out");
         document.getElementById("a2").style.border = "2px solid red";
     }
-    else if (email == null || email == "")
+    else if (email == 0)
     {
         alert("Email must be filled out");
         document.getElementById("email").style.border = "2px solid red";
     }
-    else if (checkbox.checkValidity() == false)
+    else if (check == false)
     {
         alert("You must agree to the terms of service");
-        document.getElementById("span").style.visibility = "visible";
+        document.getElementById("span").style.display = "block";
     }
     else
     {
