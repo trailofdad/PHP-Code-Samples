@@ -5,18 +5,22 @@
     <title></title>
 </head>
 <body>
-    <form action="code.php" method="post" enctype="multipart/form-data">
-        First Name: <br/>
-        <input type="text" name="firstname"> <br/>
-        Last Name: <br/>
-        <input type="text" name="lastname"> <br/>
-        Address 1: <br/>
-        <input type="text" name="address1"> <br/>
-        Address 2: <br/>
-        <input type="text" name="address2"> <br/>
-        Email: <br/>
-        <input type="text" name="email"> <br/>
+    <form>
+        <label>First Name:
+        <input type="text" name="firstname" id="fname"> </label><br/>
+        <label>Last Name:
+        <input type="text" name="lastname" id="lname"></label> <br/>
+        <label>Address 1:
+        <input type="text" name="address1" id="a1"></label> <br/>
+        <label>Address 2:
+        <input type="text" name="address2" id="a2"></label> <br/>
+        <label>Email:
+        <input type="text" name="email" id="email"></label> <br/>
+        <input type="checkbox" name="agreement"/> <p>I Accept Terms and Conditions</p> <span>Must accept terms and conditions</span> <br/>
         <input type="submit" value="Submit" name="submit">
     </form>
 </body>
+
+<script language="javascript" type="text/javascript" src="scripts.js"></script>
+
 </html>
