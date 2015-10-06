@@ -55,7 +55,7 @@ while ($row = mysqli_fetch_assoc($result))
 {
     echo "<tr>";
     echo "<td>" . $row['actor_id']. "</td>" . " " . "<td>" . $row['first_name']. "</td>" . " " . "<td>" . $row['last_name'] . "</td>";
-//    echo "<br />";
+
     echo "</tr>";
 }
 
