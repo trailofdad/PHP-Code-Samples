@@ -20,6 +20,12 @@ echo "<form action='updateHandler.php' method='post' enctype='multipart/form-dat
     echo "<input type='text' name='updatefirst' value='$firstName'> <br/>";
     echo "Last Name: <br/>";
     echo "<input type='text' name='updatelast' value='$lastName'> <br/>";
+    echo "Birth Date: <br/>";
+    echo "<input type='text' name='updatefirst' value='$firstName'> <br/>";
+    echo "Gender: <br/>";
+    echo "<input type='text' name='updatefirst' value='$firstName'> <br/>";
+    echo "Hire Date: <br/>";
+    echo "<input type='text' name='updatefirst' value='$firstName'> <br/>";
     echo "<input type='submit' value='Update' name='submit'>";
     echo "<input type='hidden' name='update' value='$updateId'>";
     echo "</form>";
