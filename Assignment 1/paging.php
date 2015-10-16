@@ -35,7 +35,12 @@ $db = getDBConnection();
     </style>
 </head>
 <body>
-
+<p>Search First & Last Names From Database:</p>
+<form action="Search.php" method="post" enctype="multipart/form-data">
+    Search:
+    <input type="text" name="search"> <br/><br/>
+    <input type="submit" value="Submit Query" name="submit">
+</form>
 <table>
     <thead>
     <tr>
@@ -80,6 +85,8 @@ $db = getDBConnection();
     <input type="text" name="update"> <br/>
     <input type="submit" value="Submit" name="submit">
 </form>
+
+
 
 <form action="paging.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="lastpage">last page</button>
