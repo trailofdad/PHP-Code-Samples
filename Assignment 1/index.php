@@ -2,7 +2,7 @@
 
 $recordsPerPage = 25;
 session_start();
-$_SESSION = 0;
+$_SESSION["pagenumber"] = 0;
 
 //connect to database
 require_once('dbConn.php');
@@ -40,7 +40,7 @@ $db = getDBConnection();
         <tbody>
         <?php
 
-        $result = mysqli_query($db,"SELECT * FROM employees ORDER BY emp_no DESC LIMIT $_SESSION, $recordsPerPage");
+        $result = mysqli_query($db,"SELECT * FROM employees ORDER BY emp_no DESC LIMIT {$_SESSION['pagenumber']}, $recordsPerPage");
             if(!$result)
             {
                 die('Could not retrieve records from the Employees Database: ' . mysqli_error($db));
@@ -69,6 +69,11 @@ $db = getDBConnection();
         ID to update: <br/>
         <input type="text" name="update"> <br/>
         <input type="submit" value="Submit" name="submit">
+    </form>
+
+    <form action="paging.php" method="post" enctype="multipart/form-data">
+    <button type="submit" name="lastpage">last page</button>
+    <button type="submit" name="nextpage">next page</button>
     </form>
 
     </body>
