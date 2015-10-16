@@ -54,7 +54,7 @@ $db = getDBConnection();
             while ($row = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";
-                echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><button>Edit</button></td>" . "<td><button>Delete</button></td>";
+                echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><form action='update.php' method='post' enctype='multipart/form-data'><button>Edit</button><input type='hidden' name='update' value='" . $row['emp_no']. "'></form></td>" . "<td><form action='delete.php' method='post' enctype='multipart/form-data'><button>Delete</button><input type='hidden' name='delete' value='" . $row['emp_no'] . "'></form></td>";
                 echo "</tr>";
             }
 
@@ -64,34 +64,11 @@ $db = getDBConnection();
 
         </tbody>
     </table>
-    <?php
-    echo "<p>Add a record to the database:</p><br/>";
-    echo "<form action='add.php' method='post' enctype='multipart/form-data'>";
-        echo "First Name: <br/>";
-        echo "<input type='text' name='addfirst'> <br/>";
-        echo "Last Name: <br/>";
-        echo "<input type='text' name='addlast'> <br/>";
-        echo "Birth Date: <br/>";
-        echo "<input type='text' name='addBirthDate'> <br/>";
-        echo "Gender: <br/>";
-        echo "<input type='text' name='addGender'> <br/>";
-        echo "Hire Date: <br/>";
-        echo "<input type='text' name='addHireDate'> <br/>";
-        echo "<input type='submit' value='add' name='submit'>";
-        echo "</form>";
-    ?>
 
+    <form action="add.php" method="post" enctype="multipart/form-data">
+        <button type="submit" name="add">Add Record</button>
+    </form>
 
-    <form action="delete.php" method="post" enctype="multipart/form-data">
-        ID to delete: <br/>
-        <input type="text" name="delete"> <br/>
-        <input type="submit" value="Submit" name="submit">
-    </form>
-    <form action="update.php" method="post" enctype="multipart/form-data">
-        ID to update: <br/>
-        <input type="text" name="update"> <br/>
-        <input type="submit" value="Submit" name="submit">
-    </form>
 
     <form action="paging.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="lastpage">last page</button>
