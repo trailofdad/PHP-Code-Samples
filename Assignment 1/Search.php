@@ -43,9 +43,11 @@
     mysqli_close($db);
     ?>
     <?php
+    $recordsPerPage = 25;
+
     $search = $_POST['search'];
     //Selecting and Displaying Data from a MySQL DB using MySQLi
-    $result = mysqli_query($db,"SELECT * FROM employees WHERE description LIKE '%$search%' LIMIT $recordsPerPage");
+    $result = mysqli_query($db,"SELECT * FROM employees WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' LIMIT $recordsPerPage");
 
     if(!$result)
     {

@@ -1,6 +1,8 @@
 <?php
 
 $recordsPerPage = 25;
+session_start();
+$_SESSION = 0;
 
 //connect to database
 require_once('dbConn.php');
@@ -38,21 +40,21 @@ $db = getDBConnection();
         <tbody>
         <?php
 
-        $result = mysqli_query($db,"SELECT * FROM employees ORDER BY emp_no DESC LIMIT $recordsPerPage");
-    if(!$result)
-    {
-        die('Could not retrieve records from the Employees Database: ' . mysqli_error($db));
-    }
+        $result = mysqli_query($db,"SELECT * FROM employees ORDER BY emp_no DESC LIMIT $_SESSION, $recordsPerPage");
+            if(!$result)
+            {
+                die('Could not retrieve records from the Employees Database: ' . mysqli_error($db));
+            }
 
-    while ($row = mysqli_fetch_assoc($result))
-    {
-        echo "<tr>";
-        echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><button>Edit</button></td>" . "<td><button></button>Delete</td>";
-        echo "</tr>";
-    }
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                echo "<tr>";
+                echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><button>Edit</button></td>" . "<td><button>Delete</button></td>";
+                echo "</tr>";
+            }
 
-    //Do this after you are finished executing all of your commands on MySQL
-        mysqli_close($db);
+            //Do this after you are finished executing all of your commands on MySQL
+                mysqli_close($db);
         ?>
 
         </tbody>
@@ -68,9 +70,6 @@ $db = getDBConnection();
         <input type="text" name="update"> <br/>
         <input type="submit" value="Submit" name="submit">
     </form>
-
-    //insert Paging
-
 
     </body>
 </html>
