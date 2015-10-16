@@ -10,7 +10,7 @@ $db = getDBConnection();
 
 $deleteId = $_POST['delete'];
 
-mysqli_query($db,"DELETE FROM actor WHERE actor_id='$deleteId';");
+mysqli_query($db,"DELETE FROM employees WHERE emp_no='$deleteId';");
 
 $affectedRows = mysqli_affected_rows($db);
 
