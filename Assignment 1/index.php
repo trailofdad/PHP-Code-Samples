@@ -1,12 +1,15 @@
 <?php
+    require 'isLoggedIn.php';
+    checkIfLoggedIn();
 
-$recordsPerPage = 25;
-session_start();
-$_SESSION["pagenumber"] = 0;
 
-//connect to database
-require_once('dbConn.php');
-$db = getDBConnection();
+    $recordsPerPage = 25;
+    session_start();
+    $_SESSION["pagenumber"] = 0;
+
+    //connect to database
+    require_once('dbConn.php');
+    $db = getDBConnection();
 ?>
 
 <html>
@@ -68,6 +71,10 @@ $db = getDBConnection();
     <form action="paging.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="lastpage">last page</button>
     <button type="submit" name="nextpage">next page</button>
+    </form>
+
+    <form action="logOut.php" method="post" enctype="multipart/form-data">
+        <button type="submit" name="logOut">Log Out</button>
     </form>
 
     </body>

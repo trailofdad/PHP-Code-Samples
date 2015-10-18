@@ -1,4 +1,6 @@
 <?php
+require 'isLoggedIn.php';
+checkIfLoggedIn();
 
 $recordsPerPage = 25;
 session_start();

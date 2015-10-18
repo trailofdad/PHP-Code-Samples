@@ -1,5 +1,8 @@
 <?php
 
+require 'isLoggedIn.php';
+checkIfLoggedIn();
+
 $recordsPerPage = 25;
 
 session_start();
@@ -53,7 +56,7 @@ $db = getDBConnection();
     while ($row = mysqli_fetch_assoc($result))
     {
         echo "<tr>";
-        echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><button>Edit</button></td>" . "<td><button>Delete</button></td>";
+        echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><form action='update.php' method='post' enctype='multipart/form-data'><button class='edit'><input class='edit' type='hidden' name='update' value='" . $row['emp_no']. "'></button></form></td>" . "<td><form action='delete.php' method='post' enctype='multipart/form-data'><button class='delete'><input class='delete' type='hidden' name='delete' value='" . $row['emp_no'] . "'></button></form></td>";
         echo "</tr>";
     }
 
@@ -64,22 +67,13 @@ $db = getDBConnection();
     </tbody>
 </table>
 
-<form action="delete.php" method="post" enctype="multipart/form-data">
-    ID to delete: <br/>
-    <input type="text" name="delete"> <br/>
-    <input type="submit" value="Submit" name="submit">
-</form>
-<form action="update.php" method="post" enctype="multipart/form-data">
-    ID to update: <br/>
-    <input type="text" name="update"> <br/>
-    <input type="submit" value="Submit" name="submit">
-</form>
-
-
-
 <form action="paging.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="lastpage">last page</button>
     <button type="submit" name="nextpage">next page</button>
+</form>
+
+<form action="logOut.php" method="post" enctype="multipart/form-data">
+    <button type="submit" name="logOut">Log Out</button>
 </form>
 
 </body>

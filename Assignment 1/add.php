@@ -14,3 +14,4 @@ echo "Hire Date: <br/>";
 echo "<input type='text' name='addHireDate'> <br/>";
 echo "<input type='submit' value='add' name='submit'>";
 echo "</form>";
+echo "<form action='logOut.php'' method='post' enctype='multipart/form-data'><button type='submit' name='logOut'>Log Out</button></form>";

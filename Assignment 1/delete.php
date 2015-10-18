@@ -1,4 +1,7 @@
 <?php
+require 'isLoggedIn.php';
+checkIfLoggedIn();
+
 session_start();
 
 require_once('dbConn.php');
@@ -15,3 +18,9 @@ echo "<a href='index.php'>Return to Home</a>";
 
 //Do this after you are finished executing all of your commands on MySQL
 mysqli_close($db);
+
+?>
+
+<form action="logOut.php" method="post" enctype="multipart/form-data">
+    <button type="submit" name="logOut">Log Out</button>
+</form>
