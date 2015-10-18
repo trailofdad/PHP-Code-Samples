@@ -11,18 +11,7 @@ $db = getDBConnection();
 
 <html>
     <head>
-        <style type="text/css">
-            table,th,td,tr {
-                border: 1px solid black;
-            }
-            th{
-                background-color: #B6B5BF;
-            }
-            button {
-                width: 90px;
-                margin: 20px;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css" type="text/css"/>
     </head>
     <body>
         <p>Search First & Last Names From Database:</p>
@@ -45,6 +34,7 @@ $db = getDBConnection();
             <tbody>
 
             <?php
+            //set the number of records to be displayed per page
             $recordsPerPage = 25;
 
             $search = $_POST['search'];
@@ -55,7 +45,7 @@ $db = getDBConnection();
             {
                 die('Could not retrieve records from the Employees Database: ' . mysqli_error($db));
             }
-
+            //building the table and adding retrieved values
             while ($row = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";

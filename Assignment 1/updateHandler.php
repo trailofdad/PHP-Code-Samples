@@ -18,5 +18,8 @@ mysqli_query($db,"UPDATE employees SET hire_date='$updateHireDate' WHERE emp_no=
 
 $affectedRows = mysqli_affected_rows($db);
 
-echo "<p>Successfully updated " . $affectedRows . "record(s)" . "</p>";
+echo "<p>Successfully updated " . $affectedRows . " record(s)" . "</p>";
 echo "<a href='index.php'>Return to Home</a>";
+
+//Do this after you are finished executing all of your commands on MySQL
+mysqli_close($db);

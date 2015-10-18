@@ -21,18 +21,7 @@ $db = getDBConnection();
 
 <html>
 <head>
-    <style type="text/css">
-        table,th,td,tr {
-            border: 1px solid black;
-        }
-        th{
-            background-color: #B6B5BF;
-        }
-        button {
-            width: 90px;
-            margin: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
 </head>
 <body>
 <p>Search First & Last Names From Database:</p>

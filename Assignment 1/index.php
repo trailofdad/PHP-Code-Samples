@@ -20,6 +20,8 @@ $db = getDBConnection();
         <input type="text" name="search"> <br/><br/>
         <input type="submit" value="Submit Query" name="submit">
     </form>
+
+    //main table display
     <table>
         <thead>
         <tr>
@@ -32,14 +34,18 @@ $db = getDBConnection();
         </tr>
         </thead>
         <tbody>
-        <?php
 
+        //php block to create the table and insert the values
+        <?php
+        //query taking the session variable set at 0 to start as the starting value,
+        // to a pre-set records per page variable
         $result = mysqli_query($db,"SELECT * FROM employees ORDER BY emp_no DESC LIMIT {$_SESSION['pagenumber']}, $recordsPerPage");
+            //error message if database values are not retrieved
             if(!$result)
             {
                 die('Could not retrieve records from the Employees Database: ' . mysqli_error($db));
             }
-
+            // while loop that creates the table and buttons using the query result
             while ($row = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";
@@ -54,11 +60,12 @@ $db = getDBConnection();
         </tbody>
     </table>
 
+    //add record button
     <form action="add.php" method="post" enctype="multipart/form-data">
         <button type="submit" name="add">Add Record</button>
     </form>
 
-
+    //paging buttons
     <form action="paging.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="lastpage">last page</button>
     <button type="submit" name="nextpage">next page</button>
