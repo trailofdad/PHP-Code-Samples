@@ -1,0 +1,20 @@
+table,th,td,tr {
+    border: 1px solid black;
+}
+th{
+    background-color: #B6B5BF;
+}
+
+.delete{
+    background-image: url("delete.png");
+    width: 48px;
+    height: 48px;
+    z-index: 5;
+}
+.edit{
+    background-image: url("edit.png");
+    width: 48px;
+    height: 48px;
+    z-index: 5;
+
+}

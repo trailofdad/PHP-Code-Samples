@@ -11,18 +11,7 @@ $db = getDBConnection();
 
 <html>
     <head>
-        <style type="text/css">
-        table,th,td,tr {
-        border: 1px solid black;
-            }
-            th{
-        background-color: #B6B5BF;
-            }
-            button {
-        width: 90px;
-                margin: 20px;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css" type="text/css"/>
     </head>
     <body>
     <p>Search First & Last Names From Database:</p>
@@ -54,7 +43,7 @@ $db = getDBConnection();
             while ($row = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";
-                echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><form action='update.php' method='post' enctype='multipart/form-data'><button>Edit</button><input type='hidden' name='update' value='" . $row['emp_no']. "'></form></td>" . "<td><form action='delete.php' method='post' enctype='multipart/form-data'><button>Delete</button><input type='hidden' name='delete' value='" . $row['emp_no'] . "'></form></td>";
+                echo "<td>" . $row['emp_no']. "</td>" . " " . "<td>" . $row['birth_date']. "</td>" . " " . "<td>" . $row['first_name'] . "</td>" . "<td>" . $row['last_name']. "</td>" . "<td>" . $row['gender']. "</td>" . "<td>" . $row['hire_date']. "</td>" . "<td><form action='update.php' method='post' enctype='multipart/form-data'><button class='edit'><input class='edit' type='hidden' name='update' value='" . $row['emp_no']. "'></button></form></td>" . "<td><form action='delete.php' method='post' enctype='multipart/form-data'><button class='delete'><input class='delete' type='hidden' name='delete' value='" . $row['emp_no'] . "'></button></form></td>";
                 echo "</tr>";
             }
 
