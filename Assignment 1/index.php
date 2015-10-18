@@ -21,7 +21,7 @@ $db = getDBConnection();
         <input type="submit" value="Submit Query" name="submit">
     </form>
 
-    //main table display
+<!--    main table display-->
     <table>
         <thead>
         <tr>
@@ -35,7 +35,7 @@ $db = getDBConnection();
         </thead>
         <tbody>
 
-        //php block to create the table and insert the values
+<!--        php block to create the table and insert the values-->
         <?php
         //query taking the session variable set at 0 to start as the starting value,
         // to a pre-set records per page variable
@@ -53,19 +53,18 @@ $db = getDBConnection();
                 echo "</tr>";
             }
 
-            //Do this after you are finished executing all of your commands on MySQL
-                mysqli_close($db);
+
         ?>
 
         </tbody>
     </table>
 
-    //add record button
+<!--    add record button-->
     <form action="add.php" method="post" enctype="multipart/form-data">
         <button type="submit" name="add">Add Record</button>
     </form>
 
-    //paging buttons
+<!--    paging buttons-->
     <form action="paging.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="lastpage">last page</button>
     <button type="submit" name="nextpage">next page</button>

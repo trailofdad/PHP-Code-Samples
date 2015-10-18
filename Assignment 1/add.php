@@ -1,11 +1,11 @@
 <?php
-
+session_start();
 echo "<p>Add a record to the database:</p><br/>";
-echo "<form action='add.php' method='post' enctype='multipart/form-data'>";
+echo "<form action='addHandler.php' method='post' enctype='multipart/form-data'>";
 echo "First Name: <br/>";
-echo "<input type='text' name='addfirst'> <br/>";
+echo "<input type='text' name='addFirst'> <br/>";
 echo "Last Name: <br/>";
-echo "<input type='text' name='addlast'> <br/>";
+echo "<input type='text' name='addLast'> <br/>";
 echo "Birth Date: <br/>";
 echo "<input type='text' name='addBirthDate'> <br/>";
 echo "Gender: <br/>";

@@ -1,5 +1,5 @@
 
-
+session_start();
 <html>
 <head>
 </head>
