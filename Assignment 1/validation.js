@@ -2,47 +2,40 @@
 
 function validateForm()
 {
-    var firstName = document.forms["myForm"].fname.value.length;
-    var lastName = document.forms["myForm"].lname.value.length;
-    var addressOne = document.forms["myForm"].a1.value.length;
-    var addressTwo = document.forms["myForm"].a2.value.length;
-    var email = document.forms["myForm"].email.value.length;
-    var check = document.getElementById("check").checked;
+    var firstName = document.forms["myForm"].addFirst.value.length;
+    var lastName = document.forms["myForm"].addLast.value.length;
+    var BirthDate = document.forms["myForm"].addBirthDate.value.length;
+    var Gender = document.forms["myForm"].addGender.value.length;
+    var HireDate = document.forms["myForm"].addHireDate.value.length;
 
     if (firstName == 0)
     {
         alert("Name must be filled out");
-        document.getElementById("fname").style.border = "2px solid red";
+        document.getElementById("addFirst").style.border = "2px solid red";
         return false;
     }
     else if (lastName == 0)
     {
         alert("Last name must be filled out");
-        document.getElementById("lname").style.border = "2px solid red";
+        document.getElementById("addLast").style.border = "2px solid red";
         return false;
     }
-    else if (addressOne == 0)
+    else if (BirthDate == 0)
     {
-        alert("Address One must be filled out");
-        document.getElementById("a1").style.border = "2px solid red";
+        alert("Birth Date must be filled out");
+        document.getElementById("addBirthDate").style.border = "2px solid red";
         return false;
     }
-    else if (addressTwo == 0)
+    else if (Gender == 0)
     {
-        alert("Address Two must be filled out");
-        document.getElementById("a2").style.border = "2px solid red";
+        alert("Gender must be filled out");
+        document.getElementById("addGender").style.border = "2px solid red";
         return false;
     }
-    else if (email == 0)
+    else if (HireDate == 0)
     {
-        alert("Email must be filled out");
-        document.getElementById("email").style.border = "2px solid red";
-        return false;
-    }
-    else if (check == false)
-    {
-        alert("You must agree to the terms of service");
-        document.getElementById("span").style.display = "block";
+        alert("Hire Date must be filled out");
+        document.getElementById("addHireDate").style.border = "2px solid red";
         return false;
     }
     else

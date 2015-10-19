@@ -63,6 +63,10 @@ $db = getDBConnection();
         </table>
         <br/>
         <a href="index.php">Home</a>
+        <?php echo "<p>" . $_SESSION['loginUser'] . " logged in" ?>
+        <form action="logOut.php" method="post" enctype="multipart/form-data">
+            <button type="submit" name="logOut">Log Out</button>
+        </form>
     </body>
 </html>
 

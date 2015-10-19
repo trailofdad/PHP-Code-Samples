@@ -73,6 +73,7 @@
     <button type="submit" name="nextpage">next page</button>
     </form>
 
+    <?php echo "<p>" . $_SESSION['loginUser'] . " logged in" ?>
     <form action="logOut.php" method="post" enctype="multipart/form-data">
         <button type="submit" name="logOut">Log Out</button>
     </form>

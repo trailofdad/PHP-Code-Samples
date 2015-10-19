@@ -36,6 +36,7 @@ echo "<form action='updateHandler.php' method='post' enctype='multipart/form-dat
     //Do this after you are finished executing all of your commands on MySQL
     mysqli_close($db);
 ?>
+<?php echo "<p>" . $_SESSION['loginUser'] . " logged in" ?>
 <form action="logOut.php" method="post" enctype="multipart/form-data">
     <button type="submit" name="logOut">Log Out</button>
 </form>
