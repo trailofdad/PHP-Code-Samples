@@ -1,5 +1,9 @@
-
+<?php
 session_start();
+require 'isLoggedIn.php';
+checkIfLoggedIn();
+?>
+
 <html>
 <head>
 </head>

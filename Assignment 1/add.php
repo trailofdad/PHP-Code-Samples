@@ -1,5 +1,9 @@
 <?php
 session_start();
+require 'isLoggedIn.php';
+checkIfLoggedIn();
+
+
 echo "<p>Add a record to the database:</p><br/>";
 echo "<form action='addHandler.php' method='post' enctype='multipart/form-data' name='myForm'>";
 echo "First Name: <br/>";
