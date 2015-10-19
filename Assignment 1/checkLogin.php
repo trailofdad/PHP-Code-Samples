@@ -9,13 +9,14 @@ $db = getDBConnection();
 
 $loginUser = $_POST['loginUser'];
 $loginPwd = $_POST['loginPwd'];
+$hashedPwd = hash("sha512",$loginPwd);
 
 //$loginUser = stripcslashes($loginUser);
 //$loginPwd = stripcslashes($loginPwd);
 //$loginUser = mysqli_real_escape_string($db,$loginUser);
 //$loginPwd = mysqli_real_escape_string($db,$loginPwd);
 
-$sqlStatement = "SELECT * FROM WebUsers WHERE user_name='$loginUser' and user_pwd='$loginPwd'";
+$sqlStatement = "SELECT * FROM WebUsers WHERE user_name='$loginUser' and user_pwd='$hashedPwd'";
 
 $result = mysqli_query($db,$sqlStatement);
 
