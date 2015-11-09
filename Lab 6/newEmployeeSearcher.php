@@ -17,7 +17,7 @@ if(!empty($_GET['q']))
 
     while ($row = fetchEmployees())
     {
-        echo $row['first_name'];
+        echo $row['first_name'] . "<br/>";
     }
 
     closeDB();
