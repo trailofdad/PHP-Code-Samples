@@ -4,6 +4,6 @@
 <title>Debug page</title>
 </head>
 <body>
-	<a href="newFilmLookup.html">Film lookup page</a>
+	<a href="newEmployeeLookup.html">Film lookup page</a>
 </body>
 </html>

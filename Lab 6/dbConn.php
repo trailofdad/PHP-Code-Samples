@@ -10,10 +10,10 @@
  function connectToDB()
  {
       global $dbConnection;
-      $dbConnection = mysqli_connect("localhost","root", "inet2005","sakila");
+      $dbConnection = mysqli_connect("localhost","root", "inet2005","employees");
       if (!$dbConnection)
       {
-            die('Could not connect to the Sakila Database: ' .
+            die('Could not connect to the Employees Database: ' .
                     mysqli_error($dbConnection));
       }
  }
@@ -24,23 +24,24 @@
       mysqli_close($dbConnection);
  }
 
- function selectFilmsWithNameStartingWith($searchString)
+ function selectEmployeesWithNameStartingWith($searchString)
  {
     global $dbConnection;
     global $result;
-    $sqlStatement = "SELECT * FROM film WHERE title LIKE '";
+    $sqlStatement = "SELECT * FROM employees WHERE first_name LIKE '";
     $sqlStatement .= $searchString;
-    $sqlStatement .= "%';";
+    $sqlStatement .= "%' LIMIT 10;";
     $result = mysqli_query($dbConnection,$sqlStatement);
     if(!$result)
     {
-            die('Could not retrieve records from the Sakila Database: ' .
+            die('Could not retrieve records from the Employees Database: ' .
                     mysqli_error($dbConnection));
     }
 
  }
 
- function fetchFilms()
+
+ function fetchEmployees()
  {
     global $dbConnection;
     global $result;
