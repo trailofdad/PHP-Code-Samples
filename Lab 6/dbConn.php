@@ -28,9 +28,12 @@
  {
     global $dbConnection;
     global $result;
-    $sqlStatement = "SELECT * FROM employees WHERE first_name LIKE '";
-    $sqlStatement .= $searchString;
-    $sqlStatement .= "%' LIMIT 10;";
+     $sqlStatement = "SELECT * FROM employees WHERE first_name LIKE '";
+     $sqlStatement .= $searchString;
+     $sqlStatement .= "%' ";
+     $sqlStatement .= "OR last_name LIKE '";
+     $sqlStatement .= $searchString;
+     $sqlStatement .= "%' LIMIT 20;";
     $result = mysqli_query($dbConnection,$sqlStatement);
     if(!$result)
     {
