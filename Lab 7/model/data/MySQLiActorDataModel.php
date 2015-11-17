@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-require_once '../model/data/iCustomerDataModel.php';
-class MySQLiCustomerDataModel implements iCustomerDataModel
+require_once '../model/data/iActorDataModel.php';
+class MySQLiActorDataModel implements iActorDataModel
 {
 
     private $dbConnection;
     private $result;
 
-    // iCustomerDataAccess methods
+    // iActorDataAccess methods
     public function connectToDB()
     {
          $this->dbConnection = @new mysqli("localhost","root", "inet2005","sakila");
@@ -27,10 +27,9 @@ class MySQLiCustomerDataModel implements iCustomerDataModel
         $this->dbConnection->close();
     }
 
-    public function selectCustomers()
+    public function selectActors()
     {
-       $selectStatement = "SELECT * FROM customer";
-       $selectStatement .= " LEFT JOIN address ON customer.address_id = address.address_id";
+       $selectStatement = "SELECT * FROM actor";
        $selectStatement .= " LIMIT 0,10;";
        $this->result = @$this->dbConnection->query($selectStatement);
        if(!$this->result)
@@ -41,11 +40,10 @@ class MySQLiCustomerDataModel implements iCustomerDataModel
 
     }
     
-    public function selectCustomerById($custID)
+    public function selectActorsById($ActorID)
     {
-       $selectStatement = "SELECT * FROM customer";
-       $selectStatement .= " LEFT JOIN address ON customer.address_id = address.address_id";
-       $selectStatement .= " WHERE customer.customer_id = $custID;";
+       $selectStatement = "SELECT * FROM actor";
+       $selectStatement .= " WHERE actor.actor_id = $ActorID;";
        $this->result = @$this->dbConnection->query($selectStatement);
        if(!$this->result)
        {
@@ -55,7 +53,7 @@ class MySQLiCustomerDataModel implements iCustomerDataModel
     }
     
 
-    public function fetchCustomers()
+    public function fetchActors()
     {
        if(!$this->result)
        {
@@ -65,11 +63,11 @@ class MySQLiCustomerDataModel implements iCustomerDataModel
        return $this->result->fetch_array();
     }
     
-    public function updateCustomer($custID,$first_name,$last_name)
+    public function updateActor($ActorID,$first_name,$last_name)
     {
-       $updateStatement = "UPDATE customer";
+       $updateStatement = "UPDATE actor";
        $updateStatement .= " SET first_name = '$first_name',last_name='$last_name'";
-       $updateStatement .= " WHERE customer_id = $custID;";
+       $updateStatement .= " WHERE actor_id = $ActorID;";
        $this->result = @$this->dbConnection->query($updateStatement);
        if(!$this->result)
        {
@@ -80,35 +78,21 @@ class MySQLiCustomerDataModel implements iCustomerDataModel
        return $this->dbConnection->affected_rows;
     }
     
-    public function fetchCustomerID($row)
+    public function fetchActorID($row)
     {
-       return $row['customer_id'];
+       return $row['actor_id'];
     }
 
-    public function fetchCustomerFirstName($row)
+    public function fetchActorFirstName($row)
     {
        return $row['first_name'];
     }
 
-    public function fetchCustomerLastName($row)
+    public function fetchActorLastName($row)
     {
        return $row['last_name'];
     }
-    
-    public function fetchAddressID($row)
-    {
-        return $row['address_id'];
-    }
 
-    public function fetchAddress1($row)
-    {
-        return $row['address'];
-    }
-
-    public function fetchAddress2($row)
-    {
-        return $row['address2'];
-    }
 }
 
 ?>

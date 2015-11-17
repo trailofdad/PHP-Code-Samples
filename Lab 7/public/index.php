@@ -1,20 +1,20 @@
 <?php
 
-require_once '../controller/CustomerController.php';
+require_once '../controller/ActorController.php';
 
-$custController = new CustomerController();
+$actorController = new ActorController();
 
 if(isset($_GET['idUpdate']))
 {
-    $custController->updateAction($_GET['idUpdate']);
+    $actorController->updateAction($_GET['idUpdate']);
 }
 elseif (isset($_POST['UpdateBtn']))
 {
-    $custController->commitUpdateAction($_POST['editCustId'],$_POST['firstName'],$_POST['lastName']);
+    $actorController->commitUpdateAction($_POST['editActorId'],$_POST['firstName'],$_POST['lastName']);
 }
 else
 {
-    $custController->displayAction();
+    $actorController->displayAction();
 }
 
 ?>
