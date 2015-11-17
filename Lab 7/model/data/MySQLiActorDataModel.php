@@ -29,7 +29,7 @@ class MySQLiActorDataModel implements iActorDataModel
 
     public function selectActors()
     {
-       $selectStatement = "SELECT * FROM actor";
+       $selectStatement = "SELECT * FROM actor ORDER BY actor_id DESC";
        $selectStatement .= " LIMIT 0,10;";
        $this->result = @$this->dbConnection->query($selectStatement);
        if(!$this->result)
@@ -40,7 +40,7 @@ class MySQLiActorDataModel implements iActorDataModel
 
     }
     
-    public function selectActorsById($ActorID)
+    public function selectActorById($ActorID)
     {
        $selectStatement = "SELECT * FROM actor";
        $selectStatement .= " WHERE actor.actor_id = $ActorID;";
