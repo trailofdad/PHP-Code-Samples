@@ -18,6 +18,8 @@ interface iActorDataModel
     
     public function updateActor($ActorID,$first_name,$last_name);
 
+    public function addActor($first_name,$last_name);
+
     // field access functions
     public function fetchActorID($row);
 

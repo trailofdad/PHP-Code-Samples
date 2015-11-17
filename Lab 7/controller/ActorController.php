@@ -41,6 +41,27 @@ class ActorController
         include '../view/displayActors.php';
     }
 
+        public function addAction()
+        {
+            include '../view/addActor.php';
+        }
+
+    public function commitAddAction($fName,$lName)
+    {
+        $lastOperationResults = "";
+
+        $currentActor = new Actor(null,$fName,$lName);
+
+        $currentActor->setFirstName($fName);
+        $currentActor->setLastName($lName);
+
+        $lastOperationResults = $this->model->addActor($currentActor);
+
+        $arrayOfActors = $this->model->getAllActors();
+
+        include '../view/displayActors.php';
+    }
+
 
 }
 

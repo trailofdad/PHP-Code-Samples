@@ -77,7 +77,20 @@ class MySQLiActorDataModel implements iActorDataModel
        
        return $this->dbConnection->affected_rows;
     }
-    
+
+    public function addActor($first_name,$last_name)
+    {
+        $insertStatement = "INSERT INTO actor (first_name,last_name) VALUES ('$first_name','$last_name')";
+        $this->result = @$this->dbConnection->query($insertStatement);
+        if(!$this->result)
+        {
+            die('Could not update records in the Sakila Database: ' .
+                $this->dbConnection->error);
+        }
+
+        return $this->dbConnection->affected_rows;
+    }
+
     public function fetchActorID($row)
     {
        return $row['actor_id'];

@@ -57,6 +57,9 @@ and open the template in the editor.
                 ?>
             </tbody>
             <tfoot></tfoot>
-        </table>  
+        </table>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <input type="submit" name="AddBtn" id="AddBtn" value="Add"/>
+        </form>
     </body>
 </html>

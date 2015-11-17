@@ -73,6 +73,15 @@ class ActorModel
         
         return "$recordsAffected record(s) updated succesfully!";
     }
+    public function addActor($actorToAdd)
+    {
+        $this->m_DataAccess->connectToDB();
+
+        $recordsAffected = $this->m_DataAccess->addActor($actorToAdd->getFirstName(),
+            $actorToAdd->getLastName());
+
+        return "$recordsAffected record(s) added succesfully!";
+    }
 }
 
 ?>
