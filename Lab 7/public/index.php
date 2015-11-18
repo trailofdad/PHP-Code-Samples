@@ -20,6 +20,10 @@ elseif (isset($_POST['CommitAddBtn']))
 {
     $actorController->commitAddAction($_POST['firstName'], $_POST['lastName']);
 }
+elseif (isset($_GET['deleteActor']))
+{
+    $actorController->deleteAction($_GET['deleteActor']);
+}
 else
 {
     $actorController->displayAction();

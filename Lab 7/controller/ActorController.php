@@ -62,6 +62,20 @@ class ActorController
         include '../view/displayActors.php';
     }
 
+    public function deleteAction($actorID)
+    {
+        $lastOperationResults = "";
+
+        $currentActor = $this->model->getActor($actorID);
+
+
+        $lastOperationResults = $this->model->deleteActor($currentActor);
+
+        $arrayOfActors = $this->model->getAllActors();
+
+        include '../view/displayActors.php';
+
+    }
 
 }
 

@@ -91,6 +91,19 @@ class MySQLiActorDataModel implements iActorDataModel
         return $this->dbConnection->affected_rows;
     }
 
+    public function deleteActor($ActorId)
+    {
+        $deleteStatement = "DELETE FROM actor WHERE actor_id='$ActorId'";
+        $this->result = @$this->dbConnection->query($deleteStatement);
+        if(!$this->result)
+        {
+            die('Could not update records in the Sakila Database: ' .
+                $this->dbConnection->error);
+        }
+
+        return $this->dbConnection->affected_rows;
+    }
+
     public function fetchActorID($row)
     {
        return $row['actor_id'];
