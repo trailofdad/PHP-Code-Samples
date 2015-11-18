@@ -57,7 +57,7 @@ and open the template in the editor.
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <input type="submit" name="AddBtn" id="AddBtn" value="Add"/>
         </form>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <input type="text" name="SearchTxt" id="SearchTxt"/>
             <input type="submit" name="SearchBtn" id="SearchBtn" value="Search"/>
         </form>

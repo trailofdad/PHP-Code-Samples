@@ -97,21 +97,22 @@ class ActorModel
     {
         $this->m_DataAccess->connectToDB();
 
-        $this->m_DataAccess->selectActors($search);
+        $arrayOfActorObjects = array();
 
-        $record =  $this->m_DataAccess->fetchActors();
+        $this->m_DataAccess->searchActors($search);
 
+        while($row =  $this->m_DataAccess->fetchActors())
+        {
+            $currentActor = new Actor($this->m_DataAccess->fetchActorID($row),
+                $this->m_DataAccess->fetchActorFirstName($row),
+                $this->m_DataAccess->fetchActorLastName($row));
 
-
-        $fetchedActor = new Actor($this->m_DataAccess->fetchActorID($record),
-            $this->m_DataAccess->fetchActorFirstName($record),
-            $this->m_DataAccess->fetchActorLastName($record));
-
-
+            $arrayOfActorObjects[] = $currentActor;
+        }
 
         $this->m_DataAccess->closeDB();
 
-        return $fetchedActor;
+        return $arrayOfActorObjects;
     }
 }
 

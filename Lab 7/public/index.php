@@ -26,7 +26,7 @@ elseif (isset($_GET['deleteActor']))
 }
 elseif (isset($_POST['SearchBtn']))
 {
-    $actorController->searchAction($_GET['SearchTxt']);
+    $actorController->searchAction($_POST['SearchTxt']);
 }
 else
 {
