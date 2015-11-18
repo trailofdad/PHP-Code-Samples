@@ -24,6 +24,10 @@ elseif (isset($_GET['deleteActor']))
 {
     $actorController->deleteAction($_GET['deleteActor']);
 }
+elseif (isset($_POST['SearchBtn']))
+{
+    $actorController->searchAction($_GET['SearchTxt']);
+}
 else
 {
     $actorController->displayAction();

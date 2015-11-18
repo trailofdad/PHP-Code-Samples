@@ -77,6 +77,13 @@ class ActorController
 
     }
 
+    public function searchAction($search)
+    {
+        $arrayOfActors = $this->model->searchActor($search);
+
+        include '../view/displayActors.php';
+    }
+
 }
 
 ?>

@@ -90,8 +90,28 @@ class ActorModel
             $actorToDelete->getFirstName(),
             $actorToDelete->getLastName());
 
-        return "$recordsAffected record(s) updated succesfully!";
+        return "$recordsAffected record(s) deleted succesfully!";
 
+    }
+    public function searchActor($search)
+    {
+        $this->m_DataAccess->connectToDB();
+
+        $this->m_DataAccess->selectActors($search);
+
+        $record =  $this->m_DataAccess->fetchActors();
+
+
+
+        $fetchedActor = new Actor($this->m_DataAccess->fetchActorID($record),
+            $this->m_DataAccess->fetchActorFirstName($record),
+            $this->m_DataAccess->fetchActorLastName($record));
+
+
+
+        $this->m_DataAccess->closeDB();
+
+        return $fetchedActor;
     }
 }
 

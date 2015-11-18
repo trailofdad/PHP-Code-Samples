@@ -22,6 +22,8 @@ interface iActorDataModel
 
     public function deleteActor($ActorID);
 
+    public function searchActors($search);
+
     // field access functions
     public function fetchActorID($row);
 

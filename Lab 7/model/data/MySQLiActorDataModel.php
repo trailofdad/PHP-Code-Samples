@@ -104,6 +104,19 @@ class MySQLiActorDataModel implements iActorDataModel
         return $this->dbConnection->affected_rows;
     }
 
+    public function searchActors($search)
+    {
+        $selectStatement = "SELECT * FROM actor WHERE first_name LIKE '$search' OR last_name LIKE '$search' ORDER BY actor_id DESC";
+        $selectStatement .= " LIMIT 0,10;";
+        $this->result = @$this->dbConnection->query($selectStatement);
+        if(!$this->result)
+        {
+            die('Could not retrieve records from the Sakila Database: ' .
+                $this->dbConnection->error);
+        }
+
+    }
+
     public function fetchActorID($row)
     {
        return $row['actor_id'];
