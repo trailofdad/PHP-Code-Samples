@@ -3,14 +3,15 @@
 use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
-use Request;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller {
 
 	public function index()
     {
-        $articles = Article::latest('published_at')->get();
+        $articles = Article::latest('published_at')->published()->get();
 
         return view('articles.index', compact('articles'));
     }
@@ -18,6 +19,8 @@ class ArticlesController extends Controller {
     public function show($id)
     {
         $article = Article::findOrFail($id);
+
+        dd($article->published_at);
 
         return view('articles.show', compact('article'));
     }
@@ -27,14 +30,30 @@ class ArticlesController extends Controller {
         return view('articles.create');
     }
 
-    public function store()
+    /**
+     * @param CreateArticleRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(ArticleRequest $request)
     {
-        $input = Request::all();
-        $input['published_at'] = Carbon::now();
 
-        Article::create($input);
+        Article::create($request->all());
 
         return redirect('articles');
 
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    public function update($id, ArticleRequest $request)
+    {
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+
+        return redirect('articles');
     }
 }
