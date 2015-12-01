@@ -9,7 +9,8 @@ class Article extends Model {
 
         'title',
         'body',
-        'published_at'
+        'published_at',
+        'user_id' //temp
     ];
 
     protected $dates = ['published_at'];
@@ -32,4 +33,12 @@ class Article extends Model {
 
     }
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
