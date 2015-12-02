@@ -33,6 +33,11 @@ class Article extends Model {
 
     }
 
+    public function getPublishedAtAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -51,4 +56,6 @@ class Article extends Model {
     {
         return $this->tags->lists('id');
     }
+
+
 }
